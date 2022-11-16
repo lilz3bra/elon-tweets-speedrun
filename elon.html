@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="elon.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="elon.js"></script>
+    <title>Elon's tweets</title>
+    <!-- Load twitter widget -->
+    <script>
+        window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));</script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="separator">
+            <div class="content">
+                <!-- Progress counter -->
+                <div class="counter">
+                    <h1 class="cnt"></h1>
+                </div>
+                <!-- Tweet loading -->
+                <div class="tweet" id="tweet">
+                    <script>
+                        $(document).ready(function () {
+                            twttr.ready(() => {
+                                parsePage();
+                            });
+                        });</script>
+                </div>
+                <!-- Splits table -->
+                <div class="splits">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell">
+                                <p>2010</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s1">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2011</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s2">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2012</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s3">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2013</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s4">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2014</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s5">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2015</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s6">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2016</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s7">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2017</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s8">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2018</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s9">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2019</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s10">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2020</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s11">-</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell">
+                                <p>2021</p>
+                            </div>
+                            <div class="cell">
+                                <p id="s12">-</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Total Timer -->
+                    <p id="sCurrent"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Splash screen section -->
+    <div class="splash">
+        <h1 class="splash-header">Ready to start? (click)<br><br></h1>
+        <h1 class="splash-instructions">Right arrow or SPACE to load the next tweet<br>Left arrow to go back<br>
+            P to pause the timer<br>R to restart</h1>
+    </div>
+    <script>
+        var splashScreen = document.querySelector('.splash');
+        splashScreen.addEventListener('click', () => {
+            splashScreen.style.opacity = 0;
+            setTimeout(() => {
+                splashScreen.classList.add('hidden')
+            }, 610);
+            startTimer();
+        });
+
+    </script>
+    <!-- Progress bar -->
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+    <!-- Pause Screen -->
+    <div class="pause">
+        <h1 class="pause-header">PAUSED<br>(Press P again to unpause)</h1>
+    </div>
+    </div>
+
+</body>
