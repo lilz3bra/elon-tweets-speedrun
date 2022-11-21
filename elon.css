@@ -68,7 +68,7 @@ p {
 #myProgress {
     width: 100%;
     background-color: grey;
-    position:absolute;
+    position:fixed;
     bottom: 0px;
     z-index: 1;
 }

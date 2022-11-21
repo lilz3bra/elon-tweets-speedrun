@@ -28,7 +28,7 @@ function loadTweet(id) {
     );
     // Update the counter
     var counterText = document.querySelector('.cnt');
-    counterText.innerHTML = `${pos + 1}/${values.length + 1}`;
+    counterText.innerHTML = `${pos + 1}/${values.length}`;
 
 
 }
